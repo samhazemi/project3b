@@ -1,0 +1,9 @@
+import pandas as pd
+
+train_df = pd.read_csv('train_2016_v2.csv', parse_dates=['transactiondate'])
+properties_df = pd.read_csv('properties_2016.csv')
+
+train_merge_df = pd.merge(train_df, properties_df, on='parcelid', how='left')
+
+train_merge_df.to_csv('train_merged_2016.csv')
+
